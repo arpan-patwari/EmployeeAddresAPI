@@ -11,7 +11,7 @@
 	<groupId>com.rm</groupId>
 	<artifactId>InnoventesRestAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>InnoventesRestAPI</name>
 	<description>Fetching Employee Details</description>
 

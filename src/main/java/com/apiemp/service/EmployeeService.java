@@ -40,18 +40,15 @@ public class EmployeeService {
 	
 	public ResponseEntity<Employee> create(Employee employee) {
 		
-	//	empRepo.save(employee);
-	//	Employee newEmployee=new Employee();
-		
 		
 		List<EmployeeAddress> newEmpAddressList=new ArrayList<EmployeeAddress>();
 		
 		if(employee.getAssociatedEmpAddress().size()>0)
 			for(EmployeeAddress empAddress:employee.getAssociatedEmpAddress()) {
-				if(empAddress.getAddress()==null) continue;//throw invalid address
+				if(empAddress.getAddress()==null) continue;//Address not given
 				else {
-					System.out.println(empAddress.getAddress());
-					System.out.println(empAddress.getAddressType());
+		//			System.out.println(empAddress.getAddress());
+		//			System.out.println(empAddress.getAddressType());
 					
 					empAddress.setEmployee(employee);
 					newEmpAddressList.add(empAddress);
@@ -59,12 +56,8 @@ public class EmployeeService {
 				
 			
 			}
-	//	System.out.println(employee);
 		employee.setAssociatedEmpAddress(newEmpAddressList);
-		
 		empRepo.save(employee);
-		
-		
 		return new ResponseEntity<>(employee,HttpStatus.CREATED);
 	}
 
@@ -73,7 +66,10 @@ public class EmployeeService {
 	
 	public ResponseEntity<Employee> findById(Long id) {
 		Optional<Employee> employeeOpt=empRepo.findById(id);
-
+		if(!employeeOpt.isPresent())
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);;
+		
+		
 		return new ResponseEntity<>(employeeOpt.get(),HttpStatus.OK);
 	}
 	
@@ -115,9 +111,6 @@ public class EmployeeService {
 			for(EmployeeAddress newEmpAddress:newEmployee.getAssociatedEmpAddress()) {
 				if(newEmpAddress.getAddress()==null) continue;//throw invalid address
 				else {
-			//		System.out.println(newEmpAddress.getAddress());
-			//		System.out.println(newEmpAddress.getAddressType());
-					
 					newEmpAddress.setEmployee(employee);
 					newEmpAddressList.add(newEmpAddress);
 				}

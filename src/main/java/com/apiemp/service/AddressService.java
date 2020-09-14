@@ -43,7 +43,7 @@ public class AddressService {
 		
 		if(address.getAssociatedEmpAddress().size()>0)
 			for(EmployeeAddress empAddress:address.getAssociatedEmpAddress()) {
-				if(empAddress.getAddress()==null) continue;//throw invalid address
+				if(empAddress.getEmployee()==null) continue;
 				else {
 					System.out.println(empAddress.getAddress());
 					System.out.println(empAddress.getAddressType());
@@ -125,7 +125,7 @@ public class AddressService {
 		
 		if(newAddress.getAssociatedEmpAddress().size()>0)
 			for(EmployeeAddress newEmpAddress:newAddress.getAssociatedEmpAddress()) {
-				if(newEmpAddress.getEmployee()==null) continue;//throw invalid address
+				if(newEmpAddress.getEmployee()==null) continue;
 				else {
 			//		System.out.println(newEmpAddress.getAddress());
 			//		System.out.println(newEmpAddress.getAddressType());

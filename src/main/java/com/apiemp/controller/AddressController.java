@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.apiemp.handler.CustomException;
 import com.apiemp.model.Address;
 import com.apiemp.service.AddressService;
 
@@ -24,30 +25,63 @@ public class AddressController {
 
 	@PostMapping("/createAddress")
 	public ResponseEntity<Address> createAddress(@RequestBody Address newAddress) {
-		return adddService.create(newAddress);
+		try {
+			return adddService.create(newAddress);
+		}
+		catch(Exception e) {
+			throw new CustomException("Failed to Create Address");
+		}
 	}
 	
 	@PutMapping("/updateAddress/{id}")
 	public ResponseEntity<Address> updateAddressById(@PathVariable Long id, @RequestBody Address emp) {
-	
+		try {
 		return adddService.updateAddressById(id, emp);
+		}
+		catch(Exception e) {
+			throw new CustomException("Failed to update Address");
+		}
 	}
 	
-	@DeleteMapping
+	@PutMapping("/updateAddressPartiallly")
+	public ResponseEntity<Address> updateAddressPartial(@RequestBody Address add) {
+		try {
+			return adddService.updateAddressPartial(add);
+		}
+		catch(Exception e) {
+			throw new CustomException("Failed to update Address");
+		}
+	}
+	
+	@DeleteMapping("/deleteAddress/{id}")
 	public ResponseEntity<Address> deleteAddress(@PathVariable Long id) {
-		return adddService.deleteAddressById(id);
+		try {
+			return adddService.deleteAddressById(id);
+		}
+		catch(Exception e) {
+			throw new CustomException("Failed to delete Address");
+		}
+		
 	}
 	
 	@GetMapping("/getAllAddress")
 	public ResponseEntity<List<Address>> getAllAddress() {
-		
-		return adddService.findAllAddress();
+		try {
+			return adddService.findAllAddress();
+		}
+		catch(Exception e) {
+			throw new CustomException("Failed to Fetch Address");
+		}
 	}
 	
 	@GetMapping("/getAddress/{id}")
 	public ResponseEntity<Address> getAddressById(@PathVariable Long id) {
-		
-		return adddService.findById(id);
+		try {
+			return adddService.findById(id);
+		}
+		catch(Exception e) {
+			throw new CustomException("Failed to Fetch Address");
+		}
 	}
 	
 }
