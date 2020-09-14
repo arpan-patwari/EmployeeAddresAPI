@@ -19,7 +19,7 @@ For making changes to the "Employee" entity
 
 1) Creating Employee:-
 
-http://localhost:8080/api/employee/createEmployee
+http://<domain_name>/api/employee/createEmployee
 
 Request body:-
 
@@ -65,13 +65,13 @@ Body={ message:"Failed to create employee"}
 
 
 
-2) Viewing Employee:- http://localhost:8080/api/employee/getEmployee/<employee_id>
+2) Viewing Employee:- http://<domain_name>/api/employee/getEmployee/<employee_id>
 
 Response Header: {status:200}
 Error:-{status:404}
 
 
-3) Deleting employee:- http://localhost:8080/api/employee/deleteEmployee/<employee_id>
+3) Deleting employee:- http://<domain_name>/api/employee/deleteEmployee/<employee_id>
 
 
 response: 
@@ -81,7 +81,7 @@ error:
 header = {status : 404}
 
 
-4) Updating Employee:- http://localhost:8080/api/employee/updateEmployee/<employee_id>
+4) Updating Employee:- http://<domain_name>/api/employee/updateEmployee/<employee_id>
 
 
 Request body:-
@@ -110,7 +110,7 @@ header = {status : 404}
 
 For making changes to the "ADDRESS" entity
 
-URL:- http://localhost:8080/api/address/createAddress
+URL:- http://<domain_name>/api/address/createAddress
 
 1) Creating ADDRESS:-
 
@@ -132,7 +132,7 @@ Request Body:-
     }
 
 
-2) Viewing Address- http://localhost:8080/api/address/getAdress/<address_id>
+2) Viewing Address- http://<domain_name>/api/address/getAdress/<address_id>
 
 Response Header: {status:200}
 
@@ -162,7 +162,7 @@ Response Body:-
 Error:-{status:404}
 
 
-3) Deleting employee:- http://localhost:8080/api/address/deleteAddress/<employee_id>
+3) Deleting employee:- http://<domain_name>/api/address/deleteAddress/<employee_id>
 
 
 response: 
@@ -172,7 +172,7 @@ error:
 header = {status : 404}
 
 
-4) Update the address by Id:- http://localhost:8080/api/address/updateAddress/{id}
+4) Update the address by Id:- http://<domain_name>/api/address/updateAddress/{id}
 
 {
         "addrLineOne": "<data>",
@@ -199,7 +199,7 @@ header = {status : 404}
 
 
 
-5) Update the address partially :-  http://localhost:8080/api/employee/updateAddressPartiallly
+5) Update the address partially :-  http://<domain_name>/api/employee/updateAddressPartiallly
 
 (update only the field to update. Address Id is mandatory):
 
