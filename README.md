@@ -4,7 +4,7 @@
 
 /**************************Employee- Address REST API****************************/
 
-The project can be imported from the git repository https://github.com/arpan-patwari/arpan-repo.git
+The project can be imported from the git repository https://github.com/arpan-patwari/EmployeeAddressAPI.git
 The development has been done in elipse.
 The jar file for the project is created in /target/ folder.
 You can explicitly run the jar file
